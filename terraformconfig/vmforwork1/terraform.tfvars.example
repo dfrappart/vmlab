@@ -1,0 +1,37 @@
+######################################################################
+# config variables 
+######################################################################
+
+######################################################################
+#Provider variable
+
+AzureSubscriptionID                 = ""
+AzureClientID                       = ""
+AzureClientSecret                   = ""
+AzureTenantID                       = ""
+
+AzureSubscriptionDefenderID         = ""
+AzureSubscriptionMonitorID          = ""
+
+AzureSubscriptionDNSID              = ""
+AKSPrivateDNSZoneId                 = ""
+
+AzureSubscriptionCloudShellID       = ""
+CloudShellVnetId                    = ""
+
+AzureADClientID                     = ""
+AzureADClientSecret                 = ""
+
+AKSAdminGroupName                   = ""
+
+
+LawDefenderRGName                   = ""
+LawDefenderName                     = ""
+
+LawDefenderId                       = ""
+LawMonitorId                        = ""
+
+# Azure DevOPs
+
+AzDevOpsPST                         = ""
+AzDevOpsUri                         = "" 
