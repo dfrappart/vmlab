@@ -159,7 +159,7 @@ variable "VnetConfig" {
         }))
       }))
     }))
-    VmEnabled               = optional(bool, false)
+    VmEnabled = optional(bool, false)
 
   }))
 

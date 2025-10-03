@@ -40,6 +40,6 @@ module "AdminVm" {
   VMImageOfferName     = "WindowsServer"
   VMImageSku           = "2022-datacenter"
 
-  depends_on = [ azurerm_resource_group.RGVM ]
+  depends_on = [azurerm_resource_group.RGVM]
 }
 

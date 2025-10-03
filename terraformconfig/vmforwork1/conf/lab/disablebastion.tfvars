@@ -53,9 +53,9 @@ VnetConfig = {
         }
       }
     ]
-    VmEnabled           = true
+    VmEnabled = true
 
-    
+
   }
 }
 

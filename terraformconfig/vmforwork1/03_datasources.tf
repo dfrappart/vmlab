@@ -26,7 +26,7 @@ data "azurerm_monitor_diagnostic_categories" "keyvaultdiag" {
 }
 
 data "azurerm_monitor_diagnostic_categories" "bastiondiag" {
-  for_each = { for k, v in var.VnetConfig : k => v if v.VnetEnableBastion == true }
+  for_each    = { for k, v in var.VnetConfig : k => v if v.VnetEnableBastion == true }
   resource_id = azurerm_bastion_host.Bastion[each.key].id
 }
 
