@@ -1,4 +1,4 @@
-name: 'VMLab destroy - Manual'
+name: 'Disable Bastion - Manual'
 
 on:
   workflow_dispatch:
@@ -17,13 +17,12 @@ jobs:
   terraform:
     name: 'vm - disable bastion'
     env:
-      TF_VAR_AzureADClientID: ${{ secrets.AZUREADCLIENTID }}
-      TF_VAR_AzureADClientSecret: ${{ secrets.AZUREADCLIENTSECRET }}
+
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
       TF_VAR_AzureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
-      TF_VERSION: ${{ vars.TFVER }}
+      TF_VERSION: 1.13.3 #${{ vars.TFVER }}
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
