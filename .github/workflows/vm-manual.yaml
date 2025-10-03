@@ -15,7 +15,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Layer k8s'
+    name: 'VM create/update'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AzureTenantID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AzureClientSecret }}
