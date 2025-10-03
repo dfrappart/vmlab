@@ -1,0 +1,12 @@
+backend.hcl
+terraform.tfvars
+.terraform
+.terraform.lock.hcl
+/tests
+*.pem
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json
+__azurite_*
+charts/
+localchart/
+AzuriteConfig
