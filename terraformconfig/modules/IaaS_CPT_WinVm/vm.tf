@@ -27,7 +27,7 @@ resource "azurerm_windows_virtual_machine" "VM" {
   zone                              = var.IsDeploymentZonal ? var.Zone : null
   provision_vm_agent                = var.ProvisionVMAgent
   allow_extension_operations        = var.AllowExtensionOperations
-  vm_agent_platform_updates_enabled = var.VmAgentPlatformUpdateEnabled
+  #vm_agent_platform_updates_enabled = var.VmAgentPlatformUpdateEnabled
   vtpm_enabled                      = var.IsVTPMEnabled
   virtual_machine_scale_set_id      = var.ScaleSetId
 
