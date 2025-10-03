@@ -28,9 +28,8 @@ resource "azurerm_monitor_diagnostic_setting" "VMNICDiag" {
   storage_account_id = var.STALogId
   #log_analytics_workspace_id            = var.LawLogId
 
-  metric {
+  enabled_metric {
     category = "AllMetrics"
-    enabled  = true
 
 
   }
