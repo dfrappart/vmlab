@@ -32,7 +32,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./terraformconfig/vmforworks
+        working-directory: ./terraformconfig/vmforwork1
 
     steps:
     # Checkout the repository to the GitHub Actions runner
