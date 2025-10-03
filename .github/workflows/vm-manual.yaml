@@ -21,6 +21,10 @@ jobs:
       TF_VAR_AzureClientSecret: ${{ secrets.AzureClientSecret }}
       TF_VAR_AzureClientID: ${{ secrets.AzureClientID }}
       TF_VAR_AzureSubscriptionID: ${{ secrets.AzureSubscriptionID }}
+      ARM_TENANT_ID: ${{ secrets.AzureTenantID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AzureClientSecret }}
+      ARM_CLIENT_ID: ${{ secrets.AzureClientID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AzureSubscriptionID }}
       TF_VERSION: 1.13.1
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
