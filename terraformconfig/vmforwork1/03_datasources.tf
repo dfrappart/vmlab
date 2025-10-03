@@ -31,7 +31,11 @@ data "azurerm_monitor_diagnostic_categories" "keyvaultdiag" {
   depends_on  = [azurerm_key_vault.Kv]
 }
 
-
+data "azurerm_monitor_diagnostic_categories" "bastiondiag" {
+  for_each = { for k, v in var.VnetConfig : k => v if v.EnableBastion == true }
+  resource_id = azurerm_bastion_host.Bastion.id
+  depends_on  = [azurerm_bastion_host.Bastion]
+}
 
 #############################################################################
 #data source for public IP

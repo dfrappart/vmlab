@@ -38,3 +38,23 @@ resource "azurerm_bastion_host" "Bastion" {
 }
 
 
+resource "azurerm_monitor_diagnostic_setting" "BstDiagSettings" {
+  name                       = format("%s-%s", "diag", azurerm_bastion_host.Bastion.name)
+  storage_account_id         = azurerm_storage_account.StaMonitor.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.LawMonitor.id
+  target_resource_id         = azurerm_bastion_host.Bastion.id
+
+
+  dynamic "enabled_log" {
+    for_each = data.azurerm_monitor_diagnostic_categories.bastiondiag.log_category_types
+    content {
+      category = enabled_log.value
+
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [metric]
+  }
+
+}
