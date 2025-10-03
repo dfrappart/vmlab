@@ -17,12 +17,6 @@ data "azurerm_client_config" "currentclientconfig" {}
 data "azuread_client_config" "current" {}
 
 
-
-data "azuread_group" "aksadmin" {
-  display_name     = var.AKSAdminGroupName
-  security_enabled = true
-}
-
 #############################################################################
 #data source for diagnostic settings
 
@@ -32,9 +26,8 @@ data "azurerm_monitor_diagnostic_categories" "keyvaultdiag" {
 }
 
 data "azurerm_monitor_diagnostic_categories" "bastiondiag" {
-  for_each = { for k, v in var.VnetConfig : k => v if v.EnableBastion == true }
-  resource_id = azurerm_bastion_host.Bastion.id
-  depends_on  = [azurerm_bastion_host.Bastion]
+  for_each = { for k, v in var.VnetConfig : k => v if v.VnetEnableBastion == true }
+  resource_id = azurerm_bastion_host.Bastion[each.key].id
 }
 
 #############################################################################

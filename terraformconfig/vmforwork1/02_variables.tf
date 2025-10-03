@@ -85,15 +85,6 @@ variable "extra_tags" {
 }
 
 ######################################################
-# Data sources variables
-
-variable "AKSAdminGroupName" {
-  type        = string
-  description = "Name of the aks admin group"
-}
-
-
-######################################################
 # Rg variables
 
 variable "RgConfig" {

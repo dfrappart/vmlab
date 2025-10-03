@@ -1,4 +1,3 @@
-AzureSubscriptionID = "49816259-cb52-4fe5-8d6f-9358ad94332c"
 
 
 VnetConfig = {
@@ -60,6 +59,5 @@ VnetConfig = {
   }
 }
 
-AKSAdminGroupName = "AKSAdmins"
 
 
