@@ -17,8 +17,6 @@ jobs:
   terraform:
     name: 'vm create/update'
     env:
-      TF_VAR_AzureADClientID: ${{ secrets.AZUREADCLIENTID }}
-      TF_VAR_AzureADClientSecret: ${{ secrets.AZUREADCLIENTSECRET }}
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
@@ -47,6 +45,14 @@ jobs:
     - name: 'Terraform Format' 
       id: fmt
       run: terraform fmt
+
+    - name: 'Terraform Validate' 
+      id: validate
+      run: terraform validate
+
+    - name: 'Terraform Version' 
+      id: version
+      run: terraform version
 
     - name: 'Terraform init'
       id: init
