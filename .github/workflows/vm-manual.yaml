@@ -1,12 +1,17 @@
-name: 'Create/update VM on push'
+name: 'Create/update VM manually'
 
 on:
-  push:
-    branches:
-    - main
-    paths:
-    - 'terraformconfig/vmforworks/**'
-  pull_request:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 jobs:
   terraform:
@@ -17,7 +22,6 @@ jobs:
       TF_VAR_AzureTenantID: ${{ secrets.AzureTenantID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AzureClientSecret }}
       TF_VAR_AzureClientID: ${{ secrets.AzureClientID }}
-      TF_VAR_AzureSubscriptionID: ${{ secrets.AzureSubscriptionID }}
       TF_VERSION: 1.13.1
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
@@ -38,7 +42,7 @@ jobs:
     - name: Run Bash script
       id: bashscript
       run: bash ./scripts/displaydate.sh
-    
+
     - name: 'Terraform Format' 
       id: fmt
       run: terraform fmt
