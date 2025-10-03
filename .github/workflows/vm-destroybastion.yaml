@@ -22,7 +22,7 @@ jobs:
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
       TF_VAR_AzureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
-      TF_VERSION: 1.13.3 #${{ vars.TFVER }}
+      #TF_VERSION: 1.13.3 #${{ vars.TFVER }}
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
