@@ -4,9 +4,9 @@
 
 provider "azurerm" {
   subscription_id = var.AzureSubscriptionID
-  #client_id       = var.AzureClientID
-  #client_secret   = var.AzureClientSecret
-  #tenant_id       = var.AzureTenantID
+  client_id       = var.AzureClientID
+  client_secret   = var.AzureClientSecret
+  tenant_id       = var.AzureTenantID
 
   features {
     resource_group {
@@ -20,8 +20,8 @@ provider "azurerm" {
 
 provider "azapi" {
   subscription_id = var.AzureSubscriptionID
-  #client_id       = var.AzureClientID
-  #client_secret   = var.AzureClientSecret
-  #tenant_id       = var.AzureTenantID
+  client_id       = var.AzureClientID
+  client_secret   = var.AzureClientSecret
+  tenant_id       = var.AzureTenantID
 
 }
