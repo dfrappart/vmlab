@@ -12,12 +12,6 @@ data "azurerm_subscription" "current" {}
 data "azurerm_client_config" "currentclientconfig" {}
 
 #############################################################################
-#data source for azure ad owners
-
-data "azuread_client_config" "current" {}
-
-
-#############################################################################
 #data source for diagnostic settings
 
 data "azurerm_monitor_diagnostic_categories" "keyvaultdiag" {
