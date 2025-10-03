@@ -8,8 +8,6 @@ jobs:
   terraform:
     name: 'vm - disable bastion'
     env:
-      TF_VAR_AzureADClientID: ${{ secrets.AZUREADCLIENTID }}
-      TF_VAR_AzureADClientSecret: ${{ secrets.AZUREADCLIENTSECRET }}
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
@@ -39,10 +37,6 @@ jobs:
       id: fmt
       run: terraform fmt
 
-    - name: 'Terraform Validate' 
-      id: validate
-      run: terraform validate
-
     - name: 'Terraform Version' 
       id: version
       run: terraform version
@@ -50,6 +44,10 @@ jobs:
     - name: 'Terraform init'
       id: init
       run: terraform init -backend-config="./conf/lab/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
+
+    - name: 'Terraform Validate' 
+      id: validate
+      run: terraform validate
       
     - name: 'Terraform plan'
       id: plan
