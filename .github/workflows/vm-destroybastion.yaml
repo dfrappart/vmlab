@@ -1,4 +1,4 @@
-name: 'Terraform Aks Lab destroy - scheduled'
+name: 'VMLab destroy - Manual'
 
 on:
   workflow_dispatch:

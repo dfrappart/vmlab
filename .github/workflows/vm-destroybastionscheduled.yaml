@@ -1,4 +1,4 @@
-name: 'Terraform Aks Lab destroy - scheduled'
+name: 'Disable Bastion - scheduled'
 
 on:
   schedule:
@@ -46,7 +46,7 @@ jobs:
     - name: 'Terraform Version' 
       id: version
       run: terraform version
-      
+
     - name: 'Terraform init'
       id: init
       run: terraform init -backend-config="./conf/lab/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
