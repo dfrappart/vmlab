@@ -17,12 +17,13 @@ jobs:
   terraform:
     name: 'vm create/update'
     env:
-      TF_VAR_AzureADClientID: ${{ secrets.AzureADClientID }}
-      TF_VAR_AzureADClientSecret: ${{ secrets.AzureADClientSecret }}
-      TF_VAR_AzureTenantID: ${{ secrets.AzureTenantID }}
-      TF_VAR_AzureClientSecret: ${{ secrets.AzureClientSecret }}
-      TF_VAR_AzureClientID: ${{ secrets.AzureClientID }}
-      TF_VERSION: 1.13.1
+      TF_VAR_AzureADClientID: ${{ secrets.AZUREADCLIENTID }}
+      TF_VAR_AzureADClientSecret: ${{ secrets.AZUREADCLIENTSECRET }}
+      TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
+      TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
+      TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
+      TF_VAR_AzureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
+      TF_VERSION: ${{ vars.TFVER }}
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
