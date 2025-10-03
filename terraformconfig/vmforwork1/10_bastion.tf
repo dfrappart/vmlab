@@ -42,7 +42,7 @@ resource "azurerm_monitor_diagnostic_setting" "BstDiagSettings" {
   name                       = format("%s-%s", "diag", azurerm_bastion_host.Bastion.name)
   storage_account_id         = azurerm_storage_account.StaMonitor.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.LawMonitor.id
-  target_resource_id         = azurerm_bastion_host.Bastion.id
+  target_resource_id         = azurerm_bastion_host.Bastion[each.key].id
 
 
   dynamic "enabled_log" {
