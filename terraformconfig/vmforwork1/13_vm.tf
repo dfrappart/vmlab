@@ -19,7 +19,7 @@ resource "azurerm_key_vault_secret" "vmadminpwd" {
 
 
 module "AdminVm" {
-  source = "../modules/IaaS_CPT_VMWinwDataDisk_NotLoadBalanced"
+  source = "../modules/IaaS_CPT_VinwinVM"
 
   for_each = { for k, v in var.VnetConfig : k => v if v.VmEnabled }
 
