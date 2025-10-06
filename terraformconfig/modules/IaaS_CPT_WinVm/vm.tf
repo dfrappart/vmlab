@@ -16,20 +16,20 @@ resource "azurerm_windows_virtual_machine" "VM" {
 
 
 
-  admin_username                    = var.VmAdminName
-  admin_password                    = var.VmAdminPassword
-  location                          = var.TargetLocation
-  name                              = "avm-${lower(var.VMSuffix)}"
-  network_interface_ids             = [azurerm_network_interface.VMNIC.id]
-  computer_name                     = substr("avm-${lower(var.VMSuffix)}", 0, 14)
-  resource_group_name               = var.TargetRg
-  size                              = var.VmSize
-  zone                              = var.IsDeploymentZonal ? var.Zone : null
-  provision_vm_agent                = var.ProvisionVMAgent
-  allow_extension_operations        = var.AllowExtensionOperations
+  admin_username             = var.VmAdminName
+  admin_password             = var.VmAdminPassword
+  location                   = var.TargetLocation
+  name                       = "avm-${lower(var.VMSuffix)}"
+  network_interface_ids      = [azurerm_network_interface.VMNIC.id]
+  computer_name              = substr("avm-${lower(var.VMSuffix)}", 0, 14)
+  resource_group_name        = var.TargetRg
+  size                       = var.VmSize
+  zone                       = var.IsDeploymentZonal ? var.Zone : null
+  provision_vm_agent         = var.ProvisionVMAgent
+  allow_extension_operations = var.AllowExtensionOperations
   #vm_agent_platform_updates_enabled = var.VmAgentPlatformUpdateEnabled
-  vtpm_enabled                      = var.IsVTPMEnabled
-  virtual_machine_scale_set_id      = var.ScaleSetId
+  vtpm_enabled                 = var.IsVTPMEnabled
+  virtual_machine_scale_set_id = var.ScaleSetId
 
 
   os_disk {

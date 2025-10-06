@@ -1,4 +1,4 @@
-name: 'vm create/update - manual'
+name: 'disable bastion - manual'
 
 on:
   workflow_dispatch:
@@ -57,7 +57,7 @@ jobs:
     - name: 'Terraform validate'
       id: validate
       run: terraform validate
-      
+
     - name: 'Terraform plan'
       id: plan
       run: terraform plan -var-file="./conf/lab/lab.tfvars"
