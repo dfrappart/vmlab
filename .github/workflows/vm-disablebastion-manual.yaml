@@ -21,11 +21,7 @@ jobs:
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
       TF_VAR_AzureSubscriptionID: ${{ vars.AZURESUBSCRIPTIONID }}
-      ARM_TENANT_ID: ${{ secrets.AZURETENANTID }}
-      ARM_CLIENT_SECRET: ${{ secrets.AZURECLIENTSECRET }}
-      ARM_CLIENT_ID: ${{ secrets.AZURECLIENTID }}
-      ARM_SUBSCRIPTION_ID: ${{ vars.AZURESUBSCRIPTIONID }}
-      TF_VERSION: 1.13.1
+      TF_VERSION: ${{ vars.TFVER }}
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
@@ -62,6 +58,6 @@ jobs:
       id: plan
       run: terraform plan -var-file="./conf/lab/lab.tfvars"
 
-#    - name: 'Terraform apply'
-#      id: apply
-#      run: terraform apply -auto-approve -var-file="./conf/lab/lab.tfvars"
+    - name: 'Terraform apply'
+      id: apply
+      run: terraform apply -auto-approve -var-file="./conf/lab/disablebastion.tfvars"
