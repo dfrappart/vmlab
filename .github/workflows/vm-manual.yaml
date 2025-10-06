@@ -20,7 +20,7 @@ jobs:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
       TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
-      TF_VAR_AzureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
+      TF_VAR_AzureSubscriptionID: ${{ vars.AZURESUBSCRIPTIONID }}
       ARM_TENANT_ID: ${{ secrets.AZURETENANTID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURECLIENTSECRET }}
       ARM_CLIENT_ID: ${{ secrets.AZURECLIENTID }}
