@@ -24,7 +24,7 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURETENANTID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURECLIENTSECRET }}
       ARM_CLIENT_ID: ${{ secrets.AZURECLIENTID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURESUBSCRIPTIONID }}
+      ARM_SUBSCRIPTION_ID: ${{ vars.AZURESUBSCRIPTIONID }}
       TF_VERSION: 1.13.1
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
