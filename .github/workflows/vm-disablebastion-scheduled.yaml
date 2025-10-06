@@ -1,4 +1,4 @@
-name: 'disable bastion - manual'
+name: 'disable bastion - scheduled'
 
 on:
   schedule:
