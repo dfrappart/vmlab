@@ -10,3 +10,4 @@ __azurite_*
 charts/
 localchart/
 AzuriteConfig
+tunnelbastion.sh
