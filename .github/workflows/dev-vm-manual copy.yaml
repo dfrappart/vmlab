@@ -1,0 +1,60 @@
+name: 'dev vm create/update - on push'
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'terraformconfig/vmforwork1/*'
+    - 'terraformconfig/conf/dev/*'
+  pull_request:
+
+
+jobs:
+  terraform:
+    name: 'VM create/update'
+    env:
+      TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
+      TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
+      TF_VAR_AzureClientID: ${{ secrets.AZURECLIENTID }}
+      TF_VAR_AzureSubscriptionID: ${{ vars.AZURESUBSCRIPTIONID }}
+      TF_VERSION: ${{ vars.TFVER }}
+      access_key: ${{ secrets.STORAGEACCESSKEY }}
+      storage_account_name: ${{ secrets.STORAGEBACKEND }}
+    runs-on: ubuntu-latest
+    environment: dev
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraformconfig/vmforwork1
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - uses: actions/checkout@v4
+    - uses: hashicorp/setup-terraform@v3
+
+    - name: Run Bash script
+      id: bashscript
+      run: bash ./scripts/displaydate.sh
+
+    - name: 'Terraform Format' 
+      id: fmt
+      run: terraform fmt
+
+    - name: 'Terraform init'
+      id: init
+      run: terraform init -backend-config="./conf/dev/devbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
+
+    - name: 'Terraform validate'
+      id: validate
+      run: terraform validate
+      
+    - name: 'Terraform plan'
+      id: plan
+      run: terraform plan -var-file="./conf/dev/dev.tfvars"
+
+    - name: 'Terraform apply'
+      id: apply
+      run: terraform apply -auto-approve -var-file="./conf/dev/dev.tfvars"
