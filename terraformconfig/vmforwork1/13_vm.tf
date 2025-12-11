@@ -33,7 +33,7 @@ module "AdminVm" {
   STABlobURI           = "https://${azurerm_storage_account.StaMonitor.name}.blob.core.windows.net/"
   VMSuffix             = "server1"
   ProvisionVMAgent     = true
-  UserDataScriptPath   = null #filebase64("${path.root}/script.ps1")
+  CustomDataScriptPath = filebase64("${path.root}/scripts/bootstrap.ps1")
   CreateAsg            = true
   DomainJoined         = false
   VMImagePublisherName = "MicrosoftWindowsServer"

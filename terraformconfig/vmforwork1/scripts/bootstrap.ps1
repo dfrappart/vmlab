@@ -1,0 +1,2 @@
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+choco install -y git terraform azure-cli kubernetes-cli kubernetes-helm 7zip pwsh az.powershell istioctl jq drawio firefox vscode cilium-cli terraform terraform-doc trivy vscode notepadplusplus golang brave dotnet

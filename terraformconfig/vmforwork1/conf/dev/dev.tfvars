@@ -5,7 +5,7 @@ VnetConfig = {
   devvm1 = {
     AppName           = "dev-vm1"
     VNetAddressSpace  = "172.22.0.0/24"
-    VnetEnableBastion = true
+    VnetEnableBastion = false
     VnetPeered        = false
     SubnetsConfig = [
       {
@@ -68,10 +68,6 @@ RgConfig = {
     RgLocation = "francecentral"
     RgName     = "rsg-monitor-dev"
   }
-  "rsg-security" = {
-    RgLocation = "francecentral"
-    RgName     = "rsg-security-dev"
-  }
   "rsg-kv" = {
     RgLocation = "francecentral"
     RgName     = "rsg-kv-dev"
@@ -79,9 +75,5 @@ RgConfig = {
   "rsg-dns" = {
     RgLocation = "francecentral"
     RgName     = "rsg-dns-dev"
-  }
-  "rsg-acr" = {
-    RgLocation = "francecentral"
-    RgName     = "rsg-acr-dev"
   }
 }
