@@ -1,8 +1,9 @@
 
 
+
 VnetConfig = {
-  vm1 = {
-    AppName           = "vm1"
+  devvm1 = {
+    AppName           = "dev-vm1"
     VNetAddressSpace  = "172.22.0.0/24"
     VnetEnableBastion = true
     VnetPeered        = false
