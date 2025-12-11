@@ -99,6 +99,12 @@ variable "RgConfig" {
   }
 }
 
+variable "CustomizeStaName" {
+  type        = bool
+  description = "Whether to customize the storage account name with a random suffix"
+  default     = false
+}
+
 ######################################################
 # Vnet variable, singular, because this is a big map of objects ^^
 

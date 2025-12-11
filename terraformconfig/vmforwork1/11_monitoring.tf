@@ -31,6 +31,7 @@ resource "random_string" "suffixsta" {
   }
 }
 
+
 resource "azurerm_storage_account" "StaMonitor" {
   access_tier                       = "Hot"
   account_kind                      = "StorageV2"
@@ -47,7 +48,7 @@ resource "azurerm_storage_account" "StaMonitor" {
   large_file_share_enabled          = null
   location                          = azurerm_resource_group.RGShared["rsg-monitor"].location
   min_tls_version                   = "TLS1_2"
-  name                              = "stamonfrcebyhte"
+  name                              = var.CustomizeStaName ? "stamonfrc${random_string.suffixsta.result}" :"stamonfrcebyhte"
   nfsv3_enabled                     = false
   public_network_access_enabled     = true
   queue_encryption_key_type         = "Service"
@@ -60,6 +61,7 @@ resource "azurerm_storage_account" "StaMonitor" {
     ManagedBy = "Terraform"
     Usage     = "Diag settings Assigned through Policy"
   }
+
   blob_properties {
     change_feed_enabled           = false
     change_feed_retention_in_days = null
@@ -73,6 +75,7 @@ resource "azurerm_storage_account" "StaMonitor" {
       days = 7
     }
   }
+  
   network_rules {
     bypass         = ["AzureServices"]
     default_action = "Deny"
