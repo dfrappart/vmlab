@@ -518,3 +518,36 @@ variable "EntraIdAuthEnabled" {
   description = "Define if the Entra Id authentication  is enabled"
   default     = false
 }
+
+######################################################
+# Agent Azure Monitor
+
+
+variable "AMAEnabled" {
+  type        = bool
+  default     = true
+  description = "A bool to enable/disable Azure Monitor Agent"
+
+}
+
+variable "AMAIdentifierName" {
+  type        = string
+  default     = "WorkspaceId"
+  description = "The identifier name for Azure Monitor Agent"
+
+}
+
+variable "AMAAMAUaiId" {
+  type        = string
+  default     = ""
+  description = "The Azure Monitor Agent User Assigned Identity Id"
+
+}
+
+variable "Dcr" {
+  type = map(object({
+    DcrId          = string
+    DcrDescription = string
+  }))
+  default = {}
+}

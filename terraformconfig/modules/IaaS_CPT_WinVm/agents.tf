@@ -92,24 +92,5 @@ resource "azurerm_virtual_machine_extension" "AMA" {
 }
 
 
-variable "AMAEnabled" {
-  type        = bool
-  default     = true
-  description = "A bool to enable/disable Azure Monitor Agent"
 
-}
-
-variable "AMAIdentifierName" {
-  type        = string
-  default     = "WorkspaceId"
-  description = "The identifier name for Azure Monitor Agent"
-
-}
-
-variable "AMAAMAUaiId" {
-  type        = string
-  default     = "/subscriptions/16e85b36-5c9d-48cc-a45d-c672a4393c36/resourceGroups/rsg-monitor/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai-ama"
-  description = "The identifier value for Azure Monitor Agent"
-
-}
 
