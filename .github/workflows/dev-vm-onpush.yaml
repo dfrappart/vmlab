@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - 'terraformconfig/vmforwork1/*'
-    - 'terraformconfig/conf/dev/*'
+    - 'terraformconfig/vmforwork1/conf/dev/*'
   pull_request:
 
 
