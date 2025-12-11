@@ -63,19 +63,24 @@ VnetConfig = {
 CustomizeStaName = true
 
 RgConfig = {
-  "rsg-monitor-dev" = {
+  "rsg-monitor" = {
     RgLocation = "francecentral"
+    RgName     = "rsg-monitor-dev"
   }
-  "rsg-security-dev" = {
+  "rsg-security" = {
     RgLocation = "francecentral"
+    RgName     = "rsg-security-dev"
   }
-  "rsg-kv-dev" = {
+  "rsg-kv" = {
     RgLocation = "francecentral"
+    RgName     = "rsg-kv-dev"
   }
-  "rsg-dns-dev" = {
+  "rsg-dns" = {
     RgLocation = "francecentral"
+    RgName     = "rsg-dns-dev"
   }
-  "rsg-acr-dev" = {
+  "rsg-acr" = {
     RgLocation = "francecentral"
+    RgName     = "rsg-acr-dev"
   }
 }

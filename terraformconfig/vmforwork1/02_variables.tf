@@ -76,6 +76,7 @@ variable "extra_tags" {
 variable "RgConfig" {
   type = map(object({
     RgLocation = string
+    RgName     = optional(string, "")  
 
 
   }))

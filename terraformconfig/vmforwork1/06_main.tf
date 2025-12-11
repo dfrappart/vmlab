@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "RGShared" {
 
   location   = each.value.RgLocation
   managed_by = null
-  name       = each.key
+  name       = each.value.RgName == "" ? each.key : each.value.RgName
   #tags       = each.value.RgTags
 }
 
