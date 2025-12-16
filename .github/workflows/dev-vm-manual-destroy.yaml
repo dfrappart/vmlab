@@ -15,7 +15,7 @@ on:
 
 jobs:
   terraform:
-    name: 'VM create/update'
+    name: 'Dev VM create/update'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}

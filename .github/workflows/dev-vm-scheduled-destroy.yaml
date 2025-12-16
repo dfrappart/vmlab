@@ -6,7 +6,7 @@ on:
 
 jobs:
   terraform:
-    name: 'VM create/update'
+    name: 'Dev VM destroy'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
