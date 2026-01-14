@@ -152,8 +152,10 @@ variable "VnetConfig" {
         }))
       }))
     }))
-    VmEnabled = optional(bool, false)
+    VmEnabled = optional(bool, "false")
+    WinVmSize = optional(string, "Standard_D4s_v5")
     LinuxVmEnabled = optional(bool, false)
+    LinuxVmSize = optional(string, "Standard_D4s_v5")
 
   }))
 
