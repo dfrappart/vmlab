@@ -39,6 +39,7 @@ module "AdminVm" {
   VMImagePublisherName = "MicrosoftWindowsServer"
   VMImageOfferName     = "WindowsServer"
   VMImageSku           = "2022-datacenter"
+  VmSize               = each.value.WinVmSize
 
   depends_on = [azurerm_resource_group.RGVM]
 }
