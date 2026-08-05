@@ -4,9 +4,11 @@ resource "azurerm_log_analytics_workspace" "LawMonitor" {
   allow_resource_only_permissions = true
   cmk_for_query_forced            = false
   daily_quota_gb                  = -1
-  internet_ingestion_enabled      = true
-  internet_query_enabled          = true
+  #internet_ingestion_enabled      = true
+  #internet_query_enabled          = true
   #local_authentication_enabled       = true
+  #internet_ingestion_access_type = "Enabled"
+  #internet_query_access_type     = "Enabled"
   location                           = azurerm_resource_group.RGShared["rsg-monitor"].location
   name                               = "law-monitorlab"
   reservation_capacity_in_gb_per_day = null
