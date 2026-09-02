@@ -160,6 +160,7 @@ variable "VnetConfig" {
       Publisher = optional(string, "MicrosoftWindowsServer")
       Offer     = optional(string, "WindowsServer")
       Sku       = optional(string, "2022-datacenter")
+      VmSuffix  = optional(string, "server1")
       }),
       {
         Enabled = false
@@ -172,6 +173,7 @@ variable "VnetConfig" {
       Publisher = optional(string, "Canonical")
       Offer     = optional(string, "ubuntu-24_04-lts")
       Sku       = optional(string, "server")
+      VmSuffix  = optional(string, "server2")
       }),
       {
         Enabled = false
