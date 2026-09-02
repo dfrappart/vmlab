@@ -1,12 +1,21 @@
-name: 'lab2 vm destroy - scheduled'
+name: 'lab2 vm disable bastion - manual'
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 jobs:
   terraform:
-    name: 'Lab2 VM destroy'
+    name: 'Disable Bastion'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
@@ -16,7 +25,7 @@ jobs:
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
-    environment: dev
+    environment: lab
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -28,7 +37,6 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - uses: actions/checkout@v6
     - uses: hashicorp/setup-terraform@v4
-
     - name: Run Bash script
       id: bashscript
       run: bash ./scripts/displaydate.sh
@@ -44,11 +52,11 @@ jobs:
     - name: 'Terraform validate'
       id: validate
       run: terraform validate
-      
+
     - name: 'Terraform plan'
       id: plan
-      run: terraform plan -var-file="./conf/lab2/lab.tfvars"
+      run: terraform plan -var-file="./conf/lab2/disablebastion.tfvars"
 
     - name: 'Terraform apply'
       id: apply
-      run: terraform destroy -auto-approve -var-file="./conf/lab2/lab.tfvars"
+      run: terraform apply -auto-approve -var-file="./conf/lab2/disablebastion.tfvars"

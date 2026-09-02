@@ -1,4 +1,4 @@
-name: 'disable bastion - manual'
+name: 'vm disable bastion - manual'
 
 on:
   workflow_dispatch:

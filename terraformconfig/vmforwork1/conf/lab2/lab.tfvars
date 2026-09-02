@@ -1,8 +1,8 @@
 
 
 VnetConfig = {
-  vm1 = {
-    AppName           = "vm1"
+  lab2vm1 = {
+    AppName           = "lab2vm1"
     VNetAddressSpace  = "172.22.0.0/24"
     VnetEnableBastion = true
     VnetPeered        = false

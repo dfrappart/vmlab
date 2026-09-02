@@ -1,4 +1,4 @@
-name: 'vm disable bastion - scheduled'
+name: 'lab2 vm disable bastion - scheduled'
 
 on:
   schedule:
@@ -39,7 +39,7 @@ jobs:
 
     - name: 'Terraform init'
       id: init
-      run: terraform init -backend-config="./conf/lab/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
+      run: terraform init -backend-config="./conf/lab2/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
 
     - name: 'Terraform validate'
       id: validate
@@ -47,8 +47,8 @@ jobs:
 
     - name: 'Terraform plan'
       id: plan
-      run: terraform plan -var-file="./conf/lab/disablebastion.tfvars"
+      run: terraform plan -var-file="./conf/lab2/disablebastion.tfvars"
 
     - name: 'Terraform apply'
       id: apply
-      run: terraform apply -auto-approve -var-file="./conf/lab/disablebastion.tfvars"
+      run: terraform apply -auto-approve -var-file="./conf/lab2/disablebastion.tfvars"
