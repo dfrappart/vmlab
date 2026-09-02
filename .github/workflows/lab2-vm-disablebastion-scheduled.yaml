@@ -16,7 +16,7 @@ jobs:
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
-    environment: lab
+    environment: lab2
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
