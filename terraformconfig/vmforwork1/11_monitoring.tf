@@ -50,7 +50,7 @@ resource "azurerm_storage_account" "StaMonitor" {
   large_file_share_enabled          = null
   location                          = azurerm_resource_group.RGShared["rsg-monitor"].location
   min_tls_version                   = "TLS1_2"
-  name                              = var.CustomizeStaName ? "stamonfrc${random_string.suffixsta.result}" :"stamonfrcebyhte"
+  name                              = var.CustomizeStaName ? "stamonfrc${random_string.suffixsta.result}" : "stamonfrcebyhte"
   nfsv3_enabled                     = false
   public_network_access_enabled     = true
   queue_encryption_key_type         = "Service"
@@ -77,7 +77,7 @@ resource "azurerm_storage_account" "StaMonitor" {
       days = 7
     }
   }
-  
+
   network_rules {
     bypass         = ["AzureServices"]
     default_action = "Deny"

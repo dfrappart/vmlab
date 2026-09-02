@@ -52,10 +52,10 @@ ephemeral "tls_private_key" "EphemeralLinuxVmSshKey" {
 }
 
 resource "azurerm_key_vault_secret" "EphemeralLinuxVmSshKey" {
-  name         = "linuxvmsshKey"
-  value_wo        = ephemeral.tls_private_key.EphemeralLinuxVmSshKey.private_key_pem
+  name             = "linuxvmsshKey"
+  value_wo         = ephemeral.tls_private_key.EphemeralLinuxVmSshKey.private_key_pem
   value_wo_version = 1
-  key_vault_id = azurerm_key_vault.Kv.id
+  key_vault_id     = azurerm_key_vault.Kv.id
 
 }
 
@@ -65,10 +65,10 @@ resource "tls_private_key" "LinuxVmSshKey" {
 }
 
 resource "azurerm_key_vault_secret" "LinuxVmSshKey" {
-  name         = "linuxvmsshKey"
-  value_wo        = tls_private_key.LinuxVmSshKey.private_key_pem
+  name             = "linuxvmsshKey"
+  value_wo         = tls_private_key.LinuxVmSshKey.private_key_pem
   value_wo_version = 1
-  key_vault_id = azurerm_key_vault.Kv.id
+  key_vault_id     = azurerm_key_vault.Kv.id
 
 }
 
@@ -77,9 +77,9 @@ module "LinuxVm" {
 
   for_each = { for k, v in var.VnetConfig : k => v if v.LinuxVmEnabled }
 
-  TargetRg             = azurerm_resource_group.RGVM[each.key].name
-  TargetLocation       = azurerm_resource_group.RGVM[each.key].location
-  TargetSubnetId       = "${module.vnet[each.key].VNetFullOutput.id}/subnets/sub1-${module.vnet[each.key].VNetFullOutput.name}"
+  TargetRg       = azurerm_resource_group.RGVM[each.key].name
+  TargetLocation = azurerm_resource_group.RGVM[each.key].location
+  TargetSubnetId = "${module.vnet[each.key].VNetFullOutput.id}/subnets/sub1-${module.vnet[each.key].VNetFullOutput.name}"
   #VmAdminName          = "vmadmin"
   #VmAdminPassword      = azurerm_key_vault_secret.vmadminpwd.value
   SshPublicKey         = tls_private_key.LinuxVmSshKey.public_key_openssh
