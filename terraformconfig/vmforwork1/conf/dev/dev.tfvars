@@ -54,15 +54,17 @@ VnetConfig = {
         }
       }
     ]
-    VmEnabled = true
     WinVm = {
       Enabled   = true
       Publisher = "MicrosoftWindowsDesktop"
       Offer     = "windows-11"
       Sku       = "win11-25h2-ent"
+      VmSuffix  = "devserver1"
     }
     LinuxVm = {
-      Enabled = true
+      Enabled  = true
+      VmSize   = "Standard_E4as_v5"
+      VmSuffix = "devserver2"
     }
 
 

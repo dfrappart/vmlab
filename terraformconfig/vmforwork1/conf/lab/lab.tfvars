@@ -53,11 +53,9 @@ VnetConfig = {
         }
       }
     ]
-    VmEnabled = true
-    WinVmSize = "Standard_E4as_v5"
     WinVm = {
       Enabled = true
-      VmSize = "Standard_E4as_v5"
+      VmSize  = "Standard_E4as_v5"
 
     }
 

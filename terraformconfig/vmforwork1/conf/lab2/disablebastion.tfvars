@@ -66,7 +66,7 @@ VnetConfig = {
     LinuxVmSize    = "Standard_E4as_v5"
     LinuxVm = {
       Enabled = true
-      VmSize = "Standard_E4as_v5"
+      VmSize  = "Standard_E4as_v5"
 
     }
 

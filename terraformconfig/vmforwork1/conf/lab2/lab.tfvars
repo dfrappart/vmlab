@@ -54,21 +54,19 @@ VnetConfig = {
       }
     ]
     VmEnabled = true
-    WinVmSize = "Standard_E4as_v5"
     WinVm = {
       Enabled   = true
       Publisher = "MicrosoftWindowsDesktop"
       Offer     = "windows-11"
       Sku       = "win11-25h2-ent"
       VmSize    = "Standard_E4as_v5"
-      VmSuffix  = "lab2server1"
+      VmSuffix  = "server1"
     }
     LinuxVmEnabled = true
-    LinuxVmSize    = "Standard_E4as_v5"
     LinuxVm = {
-      Enabled = true
-      VmSize = "Standard_E4as_v5"
-      VmSuffix  = "lab2server2"
+      Enabled  = true
+      VmSize   = "Standard_E4as_v5"
+      VmSuffix = "server2"
 
     }
 

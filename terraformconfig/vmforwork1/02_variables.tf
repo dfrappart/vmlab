@@ -153,7 +153,6 @@ variable "VnetConfig" {
       }))
     }))
     VmEnabled = optional(bool, "false")
-    WinVmSize = optional(string, "Standard_D4s_v5")
     WinVm = optional(object({
       Enabled   = optional(bool, false)
       Size      = optional(string, "Standard_D4s_v5")
@@ -166,7 +165,6 @@ variable "VnetConfig" {
         Enabled = false
     })
     LinuxVmEnabled = optional(bool, false)
-    LinuxVmSize    = optional(string, "Standard_D4s_v5")
     LinuxVm = optional(object({
       Enabled   = optional(bool, false)
       Size      = optional(string, "Standard_D4s_v5")

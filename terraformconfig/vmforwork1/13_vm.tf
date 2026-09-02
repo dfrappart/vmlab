@@ -21,7 +21,7 @@ resource "azurerm_key_vault_secret" "vmadminpwd" {
 module "AdminVm" {
   source = "../modules/IaaS_CPT_WinVm"
 
-  for_each = { for k, v in var.VnetConfig : k => v if v.VmEnabled }
+  for_each = { for k, v in var.VnetConfig : k => v if v.WinVm.Enabled }
 
   TargetRg             = azurerm_resource_group.RGVM[each.key].name
   TargetLocation       = azurerm_resource_group.RGVM[each.key].location
@@ -31,7 +31,7 @@ module "AdminVm" {
   LawLogId             = azurerm_log_analytics_workspace.LawMonitor.id
   STALogId             = azurerm_storage_account.StaMonitor.id
   STABlobURI           = "https://${azurerm_storage_account.StaMonitor.name}.blob.core.windows.net/"
-  VMSuffix             = "server1"
+  VMSuffix             = each.value.WinVm.VmSuffix
   ProvisionVMAgent     = true
   CustomDataScriptPath = filebase64("${path.root}/scripts/bootstrap.ps1")
   CreateAsg            = true
@@ -75,7 +75,7 @@ resource "azurerm_key_vault_secret" "LinuxVmSshKey" {
 module "LinuxVm" {
   source = "../modules/IaaS_CPT_LinuxVm"
 
-  for_each = { for k, v in var.VnetConfig : k => v if v.LinuxVmEnabled }
+  for_each = { for k, v in var.VnetConfig : k => v if v.LinuxVm.Enabled }
 
   TargetRg       = azurerm_resource_group.RGVM[each.key].name
   TargetLocation = azurerm_resource_group.RGVM[each.key].location
@@ -86,7 +86,7 @@ module "LinuxVm" {
   LawLogId             = azurerm_log_analytics_workspace.LawMonitor.id
   STALogId             = azurerm_storage_account.StaMonitor.id
   STABlobURI           = "https://${azurerm_storage_account.StaMonitor.name}.blob.core.windows.net/"
-  VMSuffix             = "server2"
+  VMSuffix             = each.value.LinuxVm.VmSuffix
   ProvisionVMAgent     = true
   CustomDataScriptPath = filebase64("${path.root}/scripts/bootstrap.sh")
   CreateAsg            = true
