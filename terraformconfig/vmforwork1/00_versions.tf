@@ -7,7 +7,7 @@ terraform {
 
   required_providers {
     azurerm = {
-      version = "~> 4.81.0"
+      version = "< 5.0.0"
     }
 
     azapi = {
