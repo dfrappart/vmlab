@@ -154,8 +154,28 @@ variable "VnetConfig" {
     }))
     VmEnabled = optional(bool, "false")
     WinVmSize = optional(string, "Standard_D4s_v5")
+    WinVm = optional(object({
+      Enabled = optional(bool, false)
+      Size   = optional(string, "Standard_D4s_v5")
+      Publisher = optional(string, "MicrosoftWindowsServer")
+      Offer = optional(string, "WindowsServer")
+      Sku = optional(string, "2022-Datacenter")
+    }), 
+    {
+      Enabled = false
+    })
     LinuxVmEnabled = optional(bool, false)
     LinuxVmSize = optional(string, "Standard_D4s_v5")
+    LinuxVm = optional(object({
+      Enabled = optional(bool, false)
+      Size   = optional(string, "Standard_D4s_v5")
+      Publisher = optional(string, "Canonical")
+      Offer = optional(string, "ubuntu-24_04-lts")
+      Sku = optional(string, "server")
+    }), 
+    {
+      Enabled = false
+    })
 
   }))
 

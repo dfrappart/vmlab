@@ -54,6 +54,15 @@ VnetConfig = {
       }
     ]
     VmEnabled = true
+        WinVm = {
+      Enabled = true
+      Publisher = "MicrosoftWindowsDesktop"
+      Offer = "windows-11"
+      Sku = "win11-25h2-ent"
+    }
+    LinuxVm = {
+      Enabled = true
+    }
 
 
   }

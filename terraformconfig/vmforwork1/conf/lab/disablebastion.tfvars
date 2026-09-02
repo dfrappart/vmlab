@@ -54,6 +54,9 @@ VnetConfig = {
       }
     ]
     VmEnabled = true
+    WinVm = {
+      Enabled = true
+    }
 
 
   }

@@ -55,8 +55,18 @@ VnetConfig = {
     ]
     VmEnabled = true
     WinVmSize ="Standard_E4as_v5"
+    WinVm = {
+      Enabled = true
+      Publisher = "MicrosoftWindowsDesktop"
+      Offer = "windows-11"
+      Sku = "win11-25h2-ent"
+    }
     LinuxVmEnabled = true
     LinuxVmSize = "Standard_E4as_v5"
+    LinuxVm = {
+      Enabled = true
+
+    }
 
 
   }

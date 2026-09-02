@@ -36,10 +36,10 @@ module "AdminVm" {
   CustomDataScriptPath = filebase64("${path.root}/scripts/bootstrap.ps1")
   CreateAsg            = true
   DomainJoined         = false
-  VMImagePublisherName = "MicrosoftWindowsServer"
-  VMImageOfferName     = "WindowsServer"
-  VMImageSku           = "2022-datacenter"
-  VmSize               = each.value.WinVmSize
+  VMImagePublisherName = each.value.WinVm.Publisher
+  VMImageOfferName     = each.value.WinVm.Offer
+  VMImageSku           = each.value.WinVm.Sku
+  VmSize               = each.value.WinVm.Size
 
   depends_on = [azurerm_resource_group.RGVM]
 }
@@ -90,9 +90,10 @@ module "LinuxVm" {
   ProvisionVMAgent     = true
   CustomDataScriptPath = filebase64("${path.root}/scripts/bootstrap.sh")
   CreateAsg            = true
-  VMImagePublisherName = "Canonical"
-  VMImageOfferName     = "ubuntu-24_04-lts"
-  VMImageSku           = "server"
+  VMImagePublisherName = each.value.LinuxVm.Publisher
+  VMImageOfferName     = each.value.LinuxVm.Offer
+  VMImageSku           = each.value.LinuxVm.Sku
+  VmSize               = each.value.LinuxVm.Size
   #DisablePasswordAuthentication = false
 
   depends_on = [azurerm_resource_group.RGVM]
