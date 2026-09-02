@@ -1,18 +1,21 @@
-name: 'dev vm create/update - on push'
+name: 'lab2 vm destroy - manual'
 
 on:
-  push:
-    branches:
-    - main
-    paths:
-    - 'terraformconfig/vmforwork1/*'
-    - 'terraformconfig/vmforwork1/conf/dev/*'
-  pull_request:
-
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 jobs:
   terraform:
-    name: 'Dev VM create/update'
+    name: 'Lab2 VM destroy'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
@@ -45,7 +48,7 @@ jobs:
 
     - name: 'Terraform init'
       id: init
-      run: terraform init -backend-config="./conf/dev/devbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
+      run: terraform init -backend-config="./conf/lab2/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
 
     - name: 'Terraform validate'
       id: validate
@@ -53,8 +56,8 @@ jobs:
       
     - name: 'Terraform plan'
       id: plan
-      run: terraform plan -var-file="./conf/dev/dev.tfvars"
+      run: terraform plan -var-file="./conf/lab2/lab.tfvars"
 
     - name: 'Terraform apply'
       id: apply
-      run: terraform apply -auto-approve -var-file="./conf/dev/dev.tfvars"
+      run: terraform destroy -auto-approve -var-file="./conf/lab2/lab.tfvars"

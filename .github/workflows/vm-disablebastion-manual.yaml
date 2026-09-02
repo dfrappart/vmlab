@@ -15,7 +15,7 @@ on:
 
 jobs:
   terraform:
-    name: 'VM create/update'
+    name: 'Disable Bastion'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
@@ -37,7 +37,6 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - uses: actions/checkout@v6
     - uses: hashicorp/setup-terraform@v4
-
     - name: Run Bash script
       id: bashscript
       run: bash ./scripts/displaydate.sh

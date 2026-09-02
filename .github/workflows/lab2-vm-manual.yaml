@@ -1,12 +1,21 @@
-name: 'disable bastion - scheduled'
+name: 'lab2 vm create/update - manual'
 
 on:
-  schedule:
-    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 jobs:
   terraform:
-    name: 'Disable Bastion'
+    name: 'Lab2 VM create/update'
     env:
       TF_VAR_AzureTenantID: ${{ secrets.AZURETENANTID }}
       TF_VAR_AzureClientSecret: ${{ secrets.AZURECLIENTSECRET }}
@@ -16,7 +25,7 @@ jobs:
       access_key: ${{ secrets.STORAGEACCESSKEY }}
       storage_account_name: ${{ secrets.STORAGEBACKEND }}
     runs-on: ubuntu-latest
-    environment: lab
+    environment: dev
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -39,16 +48,16 @@ jobs:
 
     - name: 'Terraform init'
       id: init
-      run: terraform init -backend-config="./conf/lab/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
+      run: terraform init -backend-config="./conf/lab2/labbackend.hcl" -backend-config=storage_account_name=${{ env.storage_account_name }} -backend-config=access_key=${{ env.access_key }}
 
     - name: 'Terraform validate'
       id: validate
       run: terraform validate
-
+      
     - name: 'Terraform plan'
       id: plan
-      run: terraform plan -var-file="./conf/lab/disablebastion.tfvars"
+      run: terraform plan -var-file="./conf/lab2/lab.tfvars"
 
     - name: 'Terraform apply'
       id: apply
-      run: terraform apply -auto-approve -var-file="./conf/lab/disablebastion.tfvars"
+      run: terraform apply -auto-approve -var-file="./conf/lab2/lab.tfvars"
