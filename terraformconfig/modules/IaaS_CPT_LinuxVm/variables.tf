@@ -314,7 +314,7 @@ variable "CreateAsg" {
 variable "Shutdown" {
   type = object({
     Enabled  = optional(bool, true)
-    Time     = optional(string, "1800")
+    Time     = optional(string, "2100")
     TimeZone = optional(string, "Romance Standard Time")
     Notification = object({
       Enabled                         = optional(bool, false)
