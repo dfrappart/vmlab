@@ -52,7 +52,7 @@ ephemeral "tls_private_key" "EphemeralLinuxVmSshKey" {
 }
 
 resource "azurerm_key_vault_secret" "EphemeralLinuxVmSshKey" {
-  name             = "linuxvmsshKey"
+  name             = "linuxvmsshkeyephemeral"
   value_wo         = ephemeral.tls_private_key.EphemeralLinuxVmSshKey.private_key_pem
   value_wo_version = 1
   key_vault_id     = azurerm_key_vault.Kv.id
@@ -65,7 +65,7 @@ resource "tls_private_key" "LinuxVmSshKey" {
 }
 
 resource "azurerm_key_vault_secret" "LinuxVmSshKey" {
-  name             = "linuxvmsshKey"
+  name             = "linuxvmsshkeytf"
   value_wo         = tls_private_key.LinuxVmSshKey.private_key_pem
   value_wo_version = 1
   key_vault_id     = azurerm_key_vault.Kv.id
