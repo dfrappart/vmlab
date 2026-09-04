@@ -1,8 +1,8 @@
 
 
 VnetConfig = {
-  vm1 = {
-    AppName           = "vm1"
+  lab2vm1 = {
+    AppName           = "lab2vm1"
     VNetAddressSpace  = "172.22.0.0/24"
     VnetEnableBastion = false
     VnetPeered        = false
@@ -54,21 +54,22 @@ VnetConfig = {
       }
     ]
     VmEnabled = true
-    WinVmSize = "Standard_E4as_v5"
     WinVm = {
       Enabled   = true
       Publisher = "MicrosoftWindowsDesktop"
       Offer     = "windows-11"
       Sku       = "win11-25h2-ent"
       VmSize    = "Standard_E4as_v5"
+      VmSuffix  = "lab2server1"
     }
     LinuxVmEnabled = true
-    LinuxVmSize    = "Standard_E4as_v5"
     LinuxVm = {
-      Enabled = true
-      VmSize  = "Standard_E4as_v5"
+      Enabled  = true
+      VmSize   = "Standard_E4as_v5"
+      VmSuffix = "lab2server2"
 
     }
+
 
   }
 }

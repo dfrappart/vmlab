@@ -39,7 +39,7 @@ module "AdminVm" {
   VMImagePublisherName = each.value.WinVm.Publisher
   VMImageOfferName     = each.value.WinVm.Offer
   VMImageSku           = each.value.WinVm.Sku
-  VmSize               = each.value.WinVm.Size
+  VmSize               = each.value.WinVm.VmSize
 
   depends_on = [azurerm_resource_group.RGVM]
 }
@@ -93,7 +93,7 @@ module "LinuxVm" {
   VMImagePublisherName = each.value.LinuxVm.Publisher
   VMImageOfferName     = each.value.LinuxVm.Offer
   VMImageSku           = each.value.LinuxVm.Sku
-  VmSize               = each.value.LinuxVm.Size
+  VmSize               = each.value.LinuxVm.VmSize
   #DisablePasswordAuthentication = false
 
   depends_on = [azurerm_resource_group.RGVM]
