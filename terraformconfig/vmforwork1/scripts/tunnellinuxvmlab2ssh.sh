@@ -1,2 +1,2 @@
 #!/bin/bash
-az network bastion tunnel --target-resource-id /subscriptions/00e23d33-3e41-4cd9-b5b4-f66391a4c77a/resourceGroups/RSG-VM-AKS/providers/Microsoft.Compute/virtualMachines/avm-lab2server2 --name bst-lab2vm1 -g rsg-spoke-lab2vm1 --resource-port 22 --port 22023
+az network bastion tunnel --target-resource-id /subscriptions/00e23d33-3e41-4cd9-b5b4-f66391a4c77a/resourceGroups/rsg-vm-lab2vm1/providers/Microsoft.Compute/virtualMachines/avm-lab2server2 --name bst-lab2vm1 -g rsg-spoke-lab2vm1 --resource-port 22 --port 22023
