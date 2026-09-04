@@ -11,3 +11,4 @@ charts/
 localchart/
 AzuriteConfig
 tunnelbastion.sh
+.DS_Store
