@@ -19,7 +19,7 @@ resource "azurerm_resource_group" "RGShared" {
 }
 
 resource "azurerm_resource_group" "RGVM" {
-  for_each = { for k, v in var.VnetConfig : k => v if v.VmEnabled || v.LinuxVmEnabled }
+  for_each = { for k, v in var.VnetConfig : k => v if v.LinuxVm.Enabled || v.WinVm.Enabled }
   name     = "rsg-vm-${each.key}"
   location = var.AzureRegion
 }

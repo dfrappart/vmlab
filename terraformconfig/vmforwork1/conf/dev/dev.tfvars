@@ -5,7 +5,7 @@ VnetConfig = {
   devvm1 = {
     AppName           = "dev-vm1"
     VNetAddressSpace  = "172.22.0.0/24"
-    VnetEnableBastion = false
+    VnetEnableBastion = true
     VnetPeered        = false
     SubnetsConfig = [
       {
@@ -54,6 +54,7 @@ VnetConfig = {
         }
       }
     ]
+    #VmEnabled = true
     WinVm = {
       Enabled   = true
       Publisher = "MicrosoftWindowsDesktop"
