@@ -41,10 +41,11 @@ VnetConfig = {
         }
       },
       {
-        Name            = "AzureBastionSubnet"
-        AddressPrefix   = "172.22.0.192/26"
-        AllowCustomName = true
-        EnableNsg       = false
+        Name             = "AzureBastionSubnet"
+        AddressPrefix    = "172.22.0.192/26"
+        AllowCustomName  = true
+        EnableNsg        = false
+        EnableNatGateway = false
         Nsg = {
           Name = "value"
           Rules = {

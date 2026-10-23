@@ -1,15 +1,17 @@
 
 
 module "vnet" {
-  source = "github.com/dfrappart/Terra-AZModuletest//Custom_Modules/IaaS_NTW_VNet"
+  source = "github.com/dfrappart/Terra-AZModuletest//Custom_Modules/IaaS_NTW_VNet?ref=feature/vnetnatgw"
 
-  for_each    = var.VnetConfig
-  RgName      = azurerm_resource_group.RGVnet[each.key].name
-  AppName     = each.value.AppName
-  LawLogId    = azurerm_log_analytics_workspace.LawMonitor.id
-  StaLogId    = azurerm_storage_account.StaMonitor.id
-  ObjectIndex = each.value.VnetObjectIndex
-  Location    = each.value.VnetLocation
+  for_each             = var.VnetConfig
+  RgName               = azurerm_resource_group.RGVnet[each.key].name
+  AppName              = each.value.AppName
+  LawLogId             = azurerm_log_analytics_workspace.LawMonitor.id
+  StaLogId             = azurerm_storage_account.StaMonitor.id
+  ObjectIndex          = each.value.VnetObjectIndex
+  Location             = each.value.VnetLocation
+  EnableNatGateway     = true
+  NatGatewayPubIpCount = 1
 
 
 

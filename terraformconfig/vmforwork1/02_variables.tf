@@ -124,10 +124,11 @@ variable "VnetConfig" {
     VnetLinkToAksEasUsDns   = optional(bool, false)
     VnetLinkToAksFrCeDns    = optional(bool, false)
     SubnetsConfig = list(object({
-      Name            = optional(string, null)
-      AllowCustomName = optional(bool, false)
-      EnableNsg       = optional(bool, true)
-      AddressPrefix   = optional(string, null)
+      Name             = optional(string, null)
+      AllowCustomName  = optional(bool, false)
+      EnableNsg        = optional(bool, true)
+      EnableNatGateway = optional(bool, true)
+      AddressPrefix    = optional(string, null)
       Delegation = optional(object({
         DelegationName           = string
         ServiceDelegationName    = string
